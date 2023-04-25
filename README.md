@@ -1,0 +1,2 @@
+# PureFunctions
+javascript practice
