@@ -244,3 +244,24 @@ a="mohan"
 
 
 console.log(a.split("").sort().join(""))
+
+
+// 10.Write a function that takes an array of objects with a date property and returns an object 
+// where the keys are the year and the values are arrays of objects with that year. Use the 
+// Map object to accomplish this.
+
+
+dateobject=[{name:'singaram',city:'thiruvannamalai',year:'24-04-1998'},{name:'saro',city:'ariyalur',year:'15-10-2000'},{name:'siva',city:'podaturper',year:'12-02-2002'},{name:'mohan',city:'podaturper',year:'23-04-2002'}]
+
+newdateobject={};
+
+dateobject.map(e=>{
+        if(newdateobject.year in newdateobject){
+            newdateobject[e.year.split("-").join("/").slice(6)].push(e);
+        }else{
+           newdateobject[e.year.split("-").join("/").slice(6)]=[e]
+        }
+
+    })
+
+    console.log(newdateobject);
