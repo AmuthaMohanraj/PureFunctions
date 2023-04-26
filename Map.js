@@ -250,13 +250,14 @@ console.log(a.split("").sort().join(""))
 // where the keys are the year and the values are arrays of objects with that year. Use the 
 // Map object to accomplish this.
 
+//example-1
 
-dateobject=[{name:'singaram',city:'thiruvannamalai',year:'24-04-1998'},{name:'saro',city:'ariyalur',year:'15-10-2000'},{name:'siva',city:'podaturper',year:'12-02-2002'},{name:'mohan',city:'podaturper',year:'23-04-2002'}]
+dateobject=[{name:'singaram',city:'thiruvannamalai',year:'21-04-1998'},{name:'saro',city:'ariyalur',year:'15-10-2000'},{name:'siva',city:'podaturper',year:'12-02-2002'},{name:'mohan',city:'podaturper',year:'23-04-2002'}]
 
 newdateobject={};
 
 dateobject.map(e=>{
-        if(newdateobject.year in newdateobject){
+        if(e.year.split("-").join("/").slice(6) in newdateobject){   
             newdateobject[e.year.split("-").join("/").slice(6)].push(e);
         }else{
            newdateobject[e.year.split("-").join("/").slice(6)]=[e]
@@ -265,3 +266,26 @@ dateobject.map(e=>{
     })
 
     console.log(newdateobject);
+
+
+
+
+    //example-2
+
+    dateobject1=[{name:'singaram',city:'thiruvannamalai',year:'1998-02-01'},{name:'saro',city:'ariyalur',year:'2000-10-15'},{name:'siva',city:'podaturper',year:'2002-12-02'},{name:'mohan',city:'podaturper',year:'2002-04-23'}]
+
+    newdateobject1={};
+
+dateobject1.map(e=>{
+
+   let date=new Date(e.year).getFullYear();
+
+        if(date in newdateobject1){ 
+            newdateobject1[date].push(e);
+        }else{
+           newdateobject1[date]=[e]
+        }
+
+    })
+
+    console.log(newdateobject1);
