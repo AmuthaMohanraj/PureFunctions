@@ -88,16 +88,23 @@ sales=[{id:78,name:'apple',price:220,category:'fruit'},
 {id:12,name:'orange',price:10,category:'fruit'}]
  uniquecategory={};
 
- sales.map(e=>{
-    if(uniquecategory in e.category){
-       uniquecategory[e.category]+=1;
-    }
-    else{
-       uniquecategory[e.category]=1
-    }
- })
+//  sales.map(e=>{
+//     if(e.category in uniquecategory){
+//        uniquecategory[e.category]+=1;
+//     }
+//     else{
+//        uniquecategory[e.category]=1
+//     }
+//  })
 
- console.log(uniquecategory);
+sales.map(e=>{
+    if(!e.category in uniquecategory)
+    {
+        uniquecategory[e.category]=e;
+    }
+})
+
+ console.log('dfhjkfhjkkj',uniquecategory);
 
 
 
@@ -217,5 +224,3 @@ list.filter(e=>{
 })
 
 console.log("Palindrome ",palindromelist)
-
-
